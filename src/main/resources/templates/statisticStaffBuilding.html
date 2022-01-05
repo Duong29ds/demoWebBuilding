@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Management Application</title>
+    <link rel="stylesheet" href="../static/assets/css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <header>
+      <nav
+        class="navbar navbar-expand-md navbar-dark"
+        style="background-color: rgb(53, 49, 47)"
+      >
+        <div class="brand">
+          <p class="navbar-brand">Quản lí toà nhà</p>
+        </div>
+
+        <ul class="navbar-nav">
+          <li>
+            <a href="/company" class="nav-link">Quản lí công ty</a>
+          </li>
+          <li><a href="/service" class="nav-link">Quản lí dịch vụ</a></li>
+          <li>
+            <a href="/staffBuilding" class="nav-link">Quản lí nhân viên toà nhà</a>
+          </li>
+          <li>
+            <a href="/statisticcompany" class="nav-link">Thống Kê</a>
+          </li>
+        </ul>
+
+        <ul class="navbar-nav navbar-collapse justify-content-end">
+          <li><a href="index.html" class="nav-link">Đăng xuất</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="row">
+      <!-- <div class="alert alert-success" *ngIf='message'>{{message}}</div> -->
+
+      <div class="container">
+        <h3 class="text-center">Thống kê nhân viên toà nhà</h3>
+        <br />
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Họ và tên</th>
+              <th>Vị trí</th>
+              <th>Lương tháng</th>
+            </tr>
+          </thead>
+          <tbody>
+            <c:forEach var="staffBuilding" items="${liststaffBuilding}">
+              <tr>
+                <td>
+                  <c:out value="${staffBuilding.id}" />
+                </td>
+                <td>
+                  <c:out value="${staffBuilding.staffBuildingName}" />
+                </td>
+                <td>
+                  <c:out value="${staffBuilding.position}" />
+                </td>
+                <td>
+                  <c:out value="${staffBuilding.salary}" />
+                </td>
+              </tr>
+            </c:forEach>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

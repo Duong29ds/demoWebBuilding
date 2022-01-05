@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Management Application</title>
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <header>
+      <nav
+        class="navbar navbar-expand-md navbar-dark"
+        style="background-color: rgb(53, 49, 47)"
+      >
+        <div class="brand">
+          <p class="navbar-brand">Quản lí toà nhà</p>
+        </div>
+
+        <ul class="navbar-nav">
+          <li>
+            <a href="/company" class="nav-link">Quản lí công ty</a>
+          </li>
+          <li><a href="/service" class="nav-link">Quản lí dịch vụ</a></li>
+          <li>
+            <a href="/staffBuilding" class="nav-link">Quản lí nhân viên toà nhà</a>
+            
+          </li>
+          <li>
+            <a href="/statisticcompany" class="nav-link">Thống Kê</a>
+          </li>
+        </ul>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+          $(document).ready(function () {
+            $(".navbar-nav li").hover(
+              function () {
+                $(this).find("ul:first").slideDown(500);
+              },
+              function () {
+                $(this).find("ul:first").slideUp(500);
+              }
+            );
+          });
+        </script>
+
+        <ul class="navbar-nav navbar-collapse justify-content-end">
+          <li><a href="index.html" class="nav-link">Đăng xuất</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="row">
+      <!-- <div class="alert alert-success" *ngIf='message'>{{message}}</div> -->
+
+      <div class="container">
+        <h3 class="text-center">Danh sách dịch vụ</h3>
+        <hr />
+        <div class="container text-left">
+			<input type="text" name="keyword" id="keyword" size="50" th:value="${keyword}" required />
+			    <button type="submit" th:name="search">search</button>
+        </div>
+        <br />
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Tên</th>
+              <th>Loại dịch vụ</th>
+              <th>Đơn giá</th>
+              <th>Hành động</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr th:each = "service : ${listService}">
+                <td th:utext="${service.id}"></td>
+                <td th:utext="${service.name}" ></td>
+                <td th:utext="${service.type}"></td>
+                <td th:utext="${service.unit}"></td>
+
+                <td>
+                <div class="d-flex flex-row bd-highlight mb-3">
+                	<form method="POST" th:action="@{'/addServiceUsedProcess/' + ${service.id}}">
+					     <button type="submit" name="submit" class="link-button">Đăng kí</button>
+					</form>
+				
+                </div>
+                </td>
+              </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

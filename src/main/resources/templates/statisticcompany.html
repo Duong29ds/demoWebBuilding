@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Management Application</title>
+    <link rel="stylesheet" href="../static/assets/css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <header>
+      <nav
+        class="navbar navbar-expand-md navbar-dark"
+        style="background-color: rgb(53, 49, 47)"
+      >
+        <div class="brand">
+          <p class="navbar-brand">Quản lí toà nhà</p>
+        </div>
+
+        <ul class="navbar-nav">
+          <li>
+            <a th:href="@{/company}" class="nav-link">Quản lí công ty</a>
+          </li>
+          <li><a href="/service" class="nav-link">Quản lí dịch vụ</a></li>
+          <li>
+            <a href="/staffBuilding" class="nav-link">Quản lí nhân viên toà nhà</a>
+          </li>
+           <li>
+            <a href="/statisticcompany" class="nav-link">Thống Kê</a>
+          </li>
+        </ul>
+
+        <ul class="navbar-nav navbar-collapse justify-content-end">
+          <li><a href="index.html" class="nav-link">Đăng xuất</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="row">
+      <!-- <div class="alert alert-success" *ngIf='message'>{{message}}</div> -->
+
+      <div class="container">
+        <h3 class="text-center">Danh sách công ty</h3>
+        <hr />
+          <div class="container text-left">
+          <form th:action="@{/company}" method= "GET">
+          	<input type="text" name="keyword" id="keyword" size="50" th:value="${keyword}" required />
+			    <button type="submit" th:name="search">search</button>
+			</form>
+        </div>
+        
+        <br />
+       
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Tên công ty</th>
+              <th>Lĩnh vực hoạt động</th>
+              <th>Địa chỉ trong toà nhà</th>
+              <th>Tỏng tiền dịch vụ</th>
+              <th>Tiên thuê mặt bằng</th>
+              <th>Tổng</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr th:each = "company : ${listStatisticCompany}">
+                <td th:utext="${company.companyid}"></td>
+                <td th:utext="${company.name}" ></td>
+                <td th:utext="${company.field}"></td>
+                <td th:utext="${company.diachi}"></td>
+                <td th:utext="${company.totalService}"></td>
+                <td th:utext="${company.totalRent}"></td>
+                <td th:utext="${company.total}"></td>
+
+               
+              </tr>
+          
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

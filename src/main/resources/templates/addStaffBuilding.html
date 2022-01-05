@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Management Application</title>
+    <link rel="stylesheet" href="../static/assets/css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <header>
+      <nav
+        class="navbar navbar-expand-md navbar-dark"
+        style="background-color: rgb(53, 49, 47)"
+      >
+        <div class="brand">
+          <p class="navbar-brand">Quản lí toà nhà</p>
+        </div>
+
+        <ul class="navbar-nav">
+          <li>
+            <a href="/company" class="nav-link">Quản lí công ty</a>
+          </li>
+          <li><a href="/service" class="nav-link">Quản lí dịch vụ</a></li>
+          <li>
+            <a href="/staffBuilding" class="nav-link">Quản lí nhân viên toà nhà</a>
+          </li>
+          <li>
+            <a href="/statisticcompany" class="nav-link">Thống Kê</a>
+          </li>
+        </ul>
+
+        <ul class="navbar-nav navbar-collapse justify-content-end">
+          <li><a href="index.html" class="nav-link">Đăng xuất</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="add-buildingstaff">
+      <div class="row">
+        <div class="container">
+          <div class="add-form">
+            <form action="" th:action = "@{/AddStaffBuilding}" class="form" id="form-1" th:object = "${buildingstaff}" method = "POST">
+              <h3 class="heading">Thêm nhân viên toà nhà</h3>
+
+              <div class="form-group">
+                <label for="buildingstaff-id" class="form-label"
+                  >Mã nhân viên toà nhà</label
+                >
+                <input
+                  id="buildingstaff-id"
+                  name="buildingstaff-id"
+                  type="text"
+                  placeholder="VD: B18DCCN222"
+                  th:field = "*{id}"
+                  class="form-control"
+                />
+                <span class="form-message"></span>
+              </div>
+              <div class="form-group">
+                <label for="buildingstaff-name" class="form-label"
+                  >Họ và tên</label
+                >
+                <input
+                  id="buildingstaff-name"
+                  name="buildingstaff-name"
+                  type="text"
+                  placeholder="VD: Hoàng Văn A"
+                  th:field = "*{name}"
+                  class="form-control"
+                />
+                <span class="form-message"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="buildingstaff-dob" class="form-label"
+                  >Ngày sinh</label
+                >
+                <input
+                  id="buildingstaff-dob"
+                  name="buildingstaff-dob"
+                  type="date"
+                  th:field = "*{dob}"
+                  class="form-control"
+                />
+                <span class="form-message"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="buildingstaff-address" class="form-label">
+                  Địa chỉ nhân viên toà nhà</label
+                >
+                <input
+                  id="buildingstaff-address"
+                  name="buildingstaff-address"
+                  type="text"
+                  th:field = "*{address}"
+                  placeholder="VD: Đồ Sơn, Hải Phòng"
+                  class="form-control"
+                />
+                <span class="form-message"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="buildingstaff-phone" class="form-label"
+                  >Số điện thoại</label
+                >
+                <input
+                  id="buildingstaff-phone"
+                  name="buildingstaff-phone"
+                  type="text"
+                  placeholder="VD: 0123123123"
+                  th:field = "*{phone}"
+                  class="form-control"
+                />
+                <span class="form-message"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="buildingstaff-level" class="form-label"
+                  >Bậc nhân viên toà nhà</label
+                >
+                <input
+                  id="buildingstaff-level"
+                  name="buildingstaff-level"
+                  type="text"
+                  placeholder="VD: 12"
+                  th:field = "*{level}"
+                  class="form-control"
+                />
+                <span class="form-message"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="buildingstaff-position" class="form-label"
+                  >Vị trí</label
+                >
+                <input
+                  id="buildingstaff-position"
+                  name="buildingstaff-position"
+                  placeholder="VD: Phòng nhân sự"
+                  type="text"
+                  th:field = "*{position}"
+                  class="form-control"
+                />
+                <span class="form-message"></span>
+              </div>
+			<div class="form-group">
+                <label for="buildingstaff-buildingid" class="form-label"
+                  >toa nha</label
+                >
+                <input
+                  id="buildingstaff-buildingid"
+                  name="buildingstaff-buildingid"
+                  type="text"
+                  class="form-control"
+                  th:field = "*{buildingid}"
+                  
+                />
+                <span class="form-message"></span>
+              </div>
+              <button class="btn btn-success btn-submit">Thêm</button>
+              <button class="btn btn-success btn-submit">Huỷ</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

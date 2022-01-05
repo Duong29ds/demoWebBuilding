@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns=http://www.w3.org/1999/xhtml
+xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Building Management</title>
+	 </head>
+	<body>
+		<div class="topnav">
+		  <a class="active" href="#home">Home</a>
+		  <a href="#about">About</a>
+		  <a href="#contact">Contact</a>
+		  
+		</div>
+		 <h1>Welcome to</h1>
+		 <form th:action="@{/}" method="GET">
+			  <input type="text" name="keyword" th:value="${keyword}"   size="50" >
+			  <button type="submit" class="btn btn-info" >Search</button>
+			  <button type="submit" class="btn btn-info" >Reset</button>
+			  
+		 </form>
+		  <form th:action="@{/}" method="POST">
+			  	<h3>Result:</h3>
+			  	<div>
+				<div th:each="company : ${allcompany}">
+					<a th:href="@{/viewCompany}" name = "company" id="company" th:text = "${company.name}" th:value = "${company.id}"></a><button type = "submit"> sửa </button><br/>
+					
+				</div>
+			  </div>
+		 </form>
+
+	</body>
+</html>

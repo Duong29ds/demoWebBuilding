@@ -1,0 +1,259 @@
+/* HEADER */
+.logo {
+  width: 10rem;
+}
+
+.main-nav-list {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  gap: 3.2rem;
+}
+
+.main-nav-link:link,
+.main-nav-link:visited {
+  position: relative;
+  text-decoration: none;
+  color: #222;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.main-nav-link:hover,
+.main-nav-link:active {
+  color: #000;
+}
+
+.border-bt-after::after {
+  top: 2.2rem;
+  position: absolute;
+  content: "";
+  height: 1.5px;
+  background-color: #000;
+  width: 0%;
+  transition: all 0.3s;
+}
+
+.main-nav-link:hover.border-bt-after::after {
+  width: 100%;
+}
+
+.header-icon {
+  height: 1.5rem;
+  width: 1.5rem;
+  color: #222;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 8rem;
+  padding-top: 0;
+  padding-bottom: 0;
+  background-color: rgba(255, 255, 255, 0.7);
+  z-index: 999;
+}
+
+/* HERO SECTION */
+
+.hero {
+  background: url("/assets/img/slider/slider.jpg") top center / cover no-repeat;
+  height: 50vh;
+  position: relative;
+}
+
+.hero-description {
+  position: absolute;
+  text-align: center;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 1.5rem;
+  font-size: 2.4rem;
+  color: #fff;
+}
+/* SECTION FEATURED */
+
+.section-featured {
+  padding: 4.8rem 0 3.2rem 0;
+}
+
+.heading-featured-in {
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.75px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 2.4rem;
+  color: #888;
+}
+
+.logos {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 3.2rem;
+  color: #fff;
+}
+
+.logos img {
+  height: 3.2rem;
+  filter: brightness(0);
+  opacity: 0.5;
+}
+/* HOW SECTION */
+
+.section-how {
+  margin-top: 6.4rem;
+}
+
+.how-img-1,
+.how-img-2,
+.how-img-3 {
+  min-height: 80vh;
+  background-position: 50% 50%;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.how-img-1 {
+  background-image: url(/assets/img/service/service1.jpg);
+}
+
+.how-img-2 {
+  background-image: url(/assets/img/service/service2.jpg);
+}
+
+.how-img-3 {
+  background-image: url(/assets/img/service/service3.jpg);
+}
+
+.how-icon {
+  height: 4.8rem;
+  width: 4.8rem;
+}
+
+.how-content {
+  font-size: 1.5rem;
+  color: #666;
+  margin-top: 1.2rem;
+  line-height: 1.4;
+}
+
+.how-description {
+  display: flex;
+  align-items: center;
+}
+
+.step-description {
+  padding-top: 1rem;
+}
+
+.description {
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+}
+
+/* SECTION FEEDBACK */
+
+.section-feedback {
+  background-color: #6898a4;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 1.6rem;
+  padding: 1.6rem;
+}
+
+.gallery-item {
+  overflow: hidden;
+}
+
+.gallery-item img {
+  display: block;
+  width: 100%;
+  transition: all 0.4s;
+  height: 100%;
+}
+
+.gallery-item img:hover {
+  transform: scale(1.1);
+}
+
+.testimonials {
+  padding: 3.2rem 4.8rem;
+}
+
+.testimonial-img {
+  width: 6.4rem;
+  border-radius: 50%;
+  margin-bottom: 1.2rem;
+}
+
+.testimonial-text {
+  font-size: 1.6rem;
+  line-height: 1.8;
+  margin-bottom: 1.6rem;
+}
+
+.testimonial-name {
+  font-size: 1.6rem;
+  color: rgb(95, 82, 82);
+}
+
+.feedback-heading {
+  padding: 3.2rem;
+}
+
+.feedback-heading h2 {
+  color: #fff;
+  font-size: 2.4rem;
+  margin-bottom: 1.2rem;
+}
+
+/* FOOTER */
+
+.footer {
+  font-size: 1.6rem;
+  margin: 9.6rem 0;
+  line-height: 1.2;
+}
+
+.grid--footer {
+  grid-template-columns: repeat(5, 1fr);
+  border-top: 1px solid #ccc;
+  padding-top: 5.6rem;
+}
+
+.social-links {
+  list-style: none;
+  color: #555;
+  padding: 1.6rem 0;
+  font-size: 2.4rem;
+}
+
+.footer-nav {
+  list-style: none;
+}
+
+.footer-link:link,
+.footer-link:visited {
+  text-decoration: none;
+  color: #555;
+  display: block;
+  padding: 0.6rem 0;
+}
+
+.social-links {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.address {
+  padding-top: 0.6rem;
+}

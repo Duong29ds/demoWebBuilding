@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>User Management Application</title>
+	<link rel="stylesheet" href="../static/assets/css/styles.css" />
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+</head>
+
+<body>
+	<header>
+		<nav class="navbar navbar-expand-md navbar-dark" style="background-color: rgb(53, 49, 47)">
+			<div class="brand">
+				<p class="navbar-brand">Quản lí toà nhà</p>
+			</div>
+
+			<ul class="navbar-nav">
+				<li>
+		            <a href="/company" class="nav-link">Quản lí công ty</a>
+		          </li>
+		          <li><a href="/service" class="nav-link">Quản lí dịch vụ</a></li>
+		          <li>
+		            <a href="/staffBuilding" class="nav-link">Quản lí nhân viên toà nhà</a>
+		          </li>
+		          <li>
+		            <a href="/statisticcompany" class="nav-link">Thống Kê</a>
+		          </li>
+			</ul>
+
+			<ul class="navbar-nav navbar-collapse justify-content-end">
+				<li><a href="index.html" class="nav-link">Đăng xuất</a></li>
+			</ul>
+		</nav>
+	</header>
+	<div class="add-staff">
+		<div class="row">
+			<div class="container">
+				<div class="add-form">
+					<form action="" th:action = "@{/AddStaff}" class="form" id="form-1" th:object = "${staff}" method = "POST">
+						<h3 class="heading">Thêm nhân viên công ty</h3>
+						<div class="form-group">
+							<label for="staff-name" class="form-label">Họ và tên</label>
+							<input id="staff-name" name="staff-name" type="text" placeholder="Hoàng Văn A" th:field = "*{name}"
+								class="form-control" />
+							<span class="form-message"></span>
+						</div>
+						<div class="form-group">
+							<label for="staff-id" class="form-label">CMT nhân viên</label>
+							<input id="staff-id" name="staff-id" type="text" placeholder="031300899" th:field = "*{idcard}"
+								class="form-control" />
+							<span class="form-message"></span>
+						</div>
+
+
+						<div class="form-group">
+							<label for="staff-dateOfBirth" class="form-label">Ngày sinh</label>
+							<input id="staff-dateOfBirth" name="staff-dateOfBirth" type="date" value="2015-12-31" th:field = "*{dob}"
+								class="form-control" />
+							<span class="form-message"></span>
+						</div>
+
+						<div class="form-group">
+							<label for="staff-phoneNumber" class="form-label">Số điện thoại</label>
+							<input id="staff-phoneNumber" name="staff-phoneNumber" type="text" placeholder="0123456789" th:field = "*{phone}"
+								class="form-control" />
+							<span class="form-message"></span>
+						</div>
+
+						<button class="btn btn-success btn-submit">Thêm</button>
+						<button class="btn btn-success btn-submit">Huỷ</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
